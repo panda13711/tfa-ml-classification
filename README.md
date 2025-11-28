@@ -16,7 +16,7 @@ Six classification models were trained and evaluated:
 
 1. **Logistic Regression** - Baseline linear classifier
 2. **Decision Tree (C5.0)** - Rule-based classifier  
-3. **k-Nearest Neighbors (kNN)** - Instance-based learning ⭐ **BEST MODEL**
+3. **k-Nearest Neighbors (kNN)** - Instance-based learning  **BEST MODEL**
 4. **Artificial Neural Network (ANN)** - Multi-layer perceptron
 5. **Random Forest** - Ensemble of decision trees
 6. **Support Vector Machine (SVM)** - Optimized kernel classifier
@@ -34,7 +34,7 @@ Six classification models were trained and evaluated:
 
 ## Best Model
 
-🏆 **k-Nearest Neighbors (kNN)** with k=21 neighbors
+ **k-Nearest Neighbors (kNN)** with k=21 neighbors
 
 - Highest F1-Score: 0.2576
 - Best balance between precision and recall
@@ -60,7 +60,7 @@ R_Models/
 ├── 00_RUN_ALL_MODELS.R          # Master script to run all models
 ├── 01_ANN_model.R                # Artificial Neural Network
 ├── 02_DecisionTree_model.R       # Decision Tree (C5.0)
-├── 03_kNN_model.R                # k-Nearest Neighbors ⭐
+├── 03_kNN_model.R                # k-Nearest Neighbors 
 ├── 04_SVM_model.R                # Support Vector Machine
 ├── 05_RandomForest_model.R       # Random Forest
 ├── 06_LogisticRegression_model.R # Logistic Regression
