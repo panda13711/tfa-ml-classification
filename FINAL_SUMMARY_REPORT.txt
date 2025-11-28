@@ -1,0 +1,149 @@
+################################################################################
+#                     MACHINE LEARNING MODEL ANALYSIS                         #
+#                  Predicting TFA Offer Confirmation                          #
+################################################################################
+
+Dataset: Teach for America Application Data (418715.xlsx)
+- Total Records: 74,839 applicants
+- Features: 13 predictor variables
+- Target: Confirmed TFA Offer (Binary: Yes/No)
+- Class Distribution: No=66,131 (88.4%), Yes=8,708 (11.6%)
+
+================================================================================
+                            MODELS TESTED
+================================================================================
+
+Six classification models were trained and evaluated:
+
+1. Logistic Regression - Baseline linear model
+2. k-Nearest Neighbors (kNN) - Instance-based learning
+3. Decision Tree (C5.0) - Rule-based classifier
+4. Artificial Neural Network (ANN) - Multi-layer perceptron
+5. Random Forest - Ensemble of decision trees
+6. Support Vector Machine (SVM) - Kernel-based classifier
+
+All models used:
+- 80/20 train-test split
+- 5-fold cross-validation (3-fold for SVM to optimize speed)
+- Standardized features (where applicable)
+
+================================================================================
+                        MODEL PERFORMANCE RESULTS
+================================================================================
+
+Model                    Accuracy    Precision   Recall      F1-Score
+------------------------------------------------------------------------
+kNN                      0.8845      0.5102      0.1723      0.2576  ⭐
+Logistic Regression      0.8898      0.5958      0.1626      0.2554
+Decision Tree            0.8888      0.5798      0.1585      0.2490
+ANN                      0.8890      0.5961      0.1407      0.2277
+Random Forest            0.8881      0.5793      0.1384      0.2235
+SVM                      0.8883      0.6018      0.1172      0.1962
+
+================================================================================
+                              KEY FINDINGS
+================================================================================
+
+🏆 BEST OVERALL MODEL: k-Nearest Neighbors (kNN)
+   - Highest F1-Score: 0.2576
+   - Best k value: 21 neighbors
+   - Accuracy: 88.45%
+   - Precision: 51.02%
+   - Recall: 17.23%
+
+📊 Performance by Metric:
+   - Best Accuracy:  Logistic Regression (88.98%)
+   - Best Precision: SVM (60.18%)
+   - Best Recall:    kNN (17.23%)
+   - Best F1-Score:  kNN (0.2576)
+
+⚖️ Trade-offs:
+   - All models achieved high accuracy (88-89%) due to class imbalance
+   - Precision is moderate (51-60%), meaning ~50% of predicted offers are correct
+   - Recall is low (12-17%), meaning models miss many actual offers
+   - This indicates the dataset is challenging for predicting the minority class
+
+================================================================================
+                         FEATURE IMPORTANCE
+================================================================================
+
+Top Influential Features (across models):
+
+1. GPA (Cumulative GPA) - Most important in all models
+2. Invited - Strong predictor of offer confirmation
+3. Essays Unique Words - Quality/effort indicator
+4. Region Preference Level - Geographic preference matters
+5. Attended Event - Engagement indicator
+6. Essays Sentiment - Emotional tone of essays
+7. Essay Lengths - Effort/commitment indicators
+8. Met, Responded - Engagement metrics
+9. Is STEM Major - Academic background
+10. Completed Admissions - Process completion
+
+================================================================================
+                            RECOMMENDATIONS
+================================================================================
+
+✅ PRIMARY RECOMMENDATION: Use k-Nearest Neighbors (kNN) with k=21
+
+   Reasons:
+   - Best F1-Score balances precision and recall
+   - Relatively simple to implement and explain
+   - Fast prediction time
+   - No assumptions about data distribution
+   - Handles non-linear relationships well
+
+⚠️  ALTERNATIVE OPTIONS:
+
+   For Higher Precision (fewer false positives):
+   → Use SVM (Precision: 60.18%)
+   
+   For Higher Accuracy:
+   → Use Logistic Regression (Accuracy: 88.98%)
+
+💡 IMPROVEMENT STRATEGIES:
+
+   1. Class Imbalance: Use SMOTE or class weights to handle the 88:12 ratio
+   2. Feature Engineering: Create interaction terms, polynomial features
+   3. Ensemble Methods: Combine multiple models via voting/stacking
+   4. Threshold Tuning: Adjust decision threshold to balance precision/recall
+   5. More Data: Collect additional features like interview scores, references
+
+================================================================================
+                            MODEL FILES
+================================================================================
+
+R Scripts (in /R_Models/):
+- 01_ANN_model.R
+- 02_DecisionTree_model.R
+- 03_kNN_model.R ⭐ (Best Model)
+- 04_SVM_model.R
+- 05_RandomForest_model.R
+- 06_LogisticRegression_model.R
+- 07_Compare_Models.R
+
+Results:
+- FINAL_MODEL_COMPARISON.csv
+- Model_Comparison_Plot.png
+- Individual results_*.csv files for each model
+
+================================================================================
+                          CONCLUSION
+================================================================================
+
+The k-Nearest Neighbors model (k=21) is recommended as the best model for
+predicting TFA offer confirmations, achieving the highest F1-Score (0.2576)
+and best recall (17.23%) while maintaining competitive accuracy (88.45%).
+
+The low recall across all models suggests that predicting who will accept
+offers is inherently challenging with the current features. Consider:
+- Adding more behavioral/engagement data
+- Using ensemble methods
+- Implementing cost-sensitive learning for the minority class
+
+For deployment, monitor model performance over time and retrain periodically
+as applicant characteristics may change.
+
+================================================================================
+Generated: November 27, 2025
+================================================================================

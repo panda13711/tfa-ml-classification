@@ -1,0 +1,258 @@
+
+================================================================================ 
+RUNNING ALL CLASSIFICATION MODELS
+================================================================================ 
+
+
+[1/6] Running Logistic Regression Model...
+Loading required package: readxl
+Loading required package: caret
+Loading required package: ggplot2
+Loading required package: lattice
+
+================================================================================ 
+LOGISTIC REGRESSION MODEL
+================================================================================ 
+
+Loading data...
+Preprocessing data...
+Data dimensions after preprocessing: 74839 rows, 14 columns
+Target distribution:
+
+   No   Yes 
+66131  8708 
+
+Training set size: 59872 
+Test set size: 14967 
+
+Training Logistic Regression model...
+
+Model training complete!
+
+Making predictions on test set...
+
+-------------------------------------------------------------------------------- 
+MODEL PERFORMANCE METRICS
+-------------------------------------------------------------------------------- 
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    No   Yes
+       No  13034  1458
+       Yes   192   283
+                                          
+               Accuracy : 0.8898          
+                 95% CI : (0.8846, 0.8947)
+    No Information Rate : 0.8837          
+    P-Value [Acc > NIR] : 0.01012         
+                                          
+                  Kappa : 0.2163          
+                                          
+ Mcnemar's Test P-Value : < 2e-16         
+                                          
+            Sensitivity : 0.16255         
+            Specificity : 0.98548         
+         Pos Pred Value : 0.59579         
+         Neg Pred Value : 0.89939         
+             Prevalence : 0.11632         
+         Detection Rate : 0.01891         
+   Detection Prevalence : 0.03174         
+      Balanced Accuracy : 0.57402         
+                                          
+       'Positive' Class : Yes             
+                                          
+
+================================================================================ 
+SUMMARY - LOGISTIC REGRESSION MODEL RESULTS
+================================================================================ 
+Accuracy:   0.8898 
+Precision:  0.5958 
+Recall:     0.1626 
+F1-Score:   0.2554 
+================================================================================ 
+
+Variable Importance:
+glm variable importance
+
+                     Overall
+GPA                 100.0000
+Invited              89.6323
+RegionPrefLevel      67.9331
+AttendedEvent        61.8469
+EssaysUniqueWords    44.8325
+Met                  30.1573
+IsStemMajor          18.2660
+Essay2Length         17.9192
+EssaysSentiment      12.3636
+Essay3Length          0.7291
+Responded             0.2519
+Essay1Length          0.1628
+CompletedAdmissions   0.0000
+
+Results saved to results_LogisticRegression.csv
+
+
+[2/6] Running Decision Tree Model...
+Loading required package: C50
+
+================================================================================ 
+DECISION TREE (C5.0) MODEL
+================================================================================ 
+
+Loading data...
+Preprocessing data...
+Data dimensions after preprocessing: 74839 rows, 14 columns
+Target distribution:
+
+   No   Yes 
+66131  8708 
+
+Training set size: 59872 
+Test set size: 14967 
+
+Training Decision Tree model...
+
+Model training complete!
+Best parameters:
+  trials model winnow
+1      1  tree  FALSE
+
+Making predictions on test set...
+
+-------------------------------------------------------------------------------- 
+MODEL PERFORMANCE METRICS
+-------------------------------------------------------------------------------- 
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    No   Yes
+       No  13026  1465
+       Yes   200   276
+                                          
+               Accuracy : 0.8888          
+                 95% CI : (0.8836, 0.8938)
+    No Information Rate : 0.8837          
+    P-Value [Acc > NIR] : 0.02656         
+                                          
+                  Kappa : 0.2095          
+                                          
+ Mcnemar's Test P-Value : < 2e-16         
+                                          
+            Sensitivity : 0.15853         
+            Specificity : 0.98488         
+         Pos Pred Value : 0.57983         
+         Neg Pred Value : 0.89890         
+             Prevalence : 0.11632         
+         Detection Rate : 0.01844         
+   Detection Prevalence : 0.03180         
+      Balanced Accuracy : 0.57170         
+                                          
+       'Positive' Class : Yes             
+                                          
+
+================================================================================ 
+SUMMARY - DECISION TREE MODEL RESULTS
+================================================================================ 
+Accuracy:   0.8888 
+Precision:  0.5798 
+Recall:     0.1585 
+F1-Score:   0.249 
+================================================================================ 
+
+Results saved to results_DecisionTree.csv
+
+
+[3/6] Running kNN Model...
+Loading required package: class
+
+================================================================================ 
+k-NEAREST NEIGHBORS (kNN) MODEL
+================================================================================ 
+
+Loading data...
+Preprocessing data...
+Data dimensions after preprocessing: 74839 rows, 14 columns
+Target distribution:
+
+   No   Yes 
+66131  8708 
+
+Training set size: 59872 
+Test set size: 14967 
+
+Training kNN model...
+
+Model training complete!
+Best k value: 21 
+
+Making predictions on test set...
+
+-------------------------------------------------------------------------------- 
+MODEL PERFORMANCE METRICS
+-------------------------------------------------------------------------------- 
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    No   Yes
+       No  12938  1441
+       Yes   288   300
+                                          
+               Accuracy : 0.8845          
+                 95% CI : (0.8792, 0.8896)
+    No Information Rate : 0.8837          
+    P-Value [Acc > NIR] : 0.3858          
+                                          
+                  Kappa : 0.2113          
+                                          
+ Mcnemar's Test P-Value : <2e-16          
+                                          
+            Sensitivity : 0.17231         
+            Specificity : 0.97822         
+         Pos Pred Value : 0.51020         
+         Neg Pred Value : 0.89978         
+             Prevalence : 0.11632         
+         Detection Rate : 0.02004         
+   Detection Prevalence : 0.03929         
+      Balanced Accuracy : 0.57527         
+                                          
+       'Positive' Class : Yes             
+                                          
+
+================================================================================ 
+SUMMARY - kNN MODEL RESULTS
+================================================================================ 
+Accuracy:   0.8845 
+Precision:  0.5102 
+Recall:     0.1723 
+F1-Score:   0.2576 
+================================================================================ 
+
+Results saved to results_kNN.csv
+
+
+[4/6] Running SVM Model...
+Loading required package: kernlab
+
+Attaching package: ‘kernlab’
+
+The following object is masked from ‘package:ggplot2’:
+
+    alpha
+
+
+================================================================================ 
+SUPPORT VECTOR MACHINE (SVM) MODEL
+================================================================================ 
+
+Loading data...
+Preprocessing data...
+Data dimensions after preprocessing: 74839 rows, 14 columns
+Target distribution:
+
+   No   Yes 
+66131  8708 
+
+Training set size: 59872 
+Test set size: 14967 
+
+Training SVM model...

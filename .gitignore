@@ -1,0 +1,13 @@
+# R History files
+.Rhistory
+.RData
+.Rproj.user
+
+# Temporary files
+*~
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
